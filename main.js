@@ -131,10 +131,6 @@ console.log(previous);
 let next = dt.nextElementSibling;
 console.log(next);
 
-// Closest
-for(let query of queries){
-  console.log(query.closest);
-}
 
 // Children
 let el = document.querySelector("article");
@@ -157,11 +153,6 @@ let newEl = document.createElement('p');
 newEl.innerHTML = 'This is new text';
 originalEl.parentNode.replaceChild(newEl, originalEl);
 
-// unwrap
-let toUnWrap = document.getElementById("unwrap");
-let parentToUnWrap = toUnWrap.parentNode;
-while(toUnWrap.firstChild) parentToUnWrap.insertBefore(toUnWrap.firstChild, toUnWrap);
-parentToUnWrap.removeChild(toUnWrap);
 
 // empty element's content
 let empty = document.getElementById("empty");
