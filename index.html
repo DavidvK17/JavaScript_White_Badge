@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript White Badge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <article>
+        <h1>JavaScript White Badge</h1>
+        <h2>Scope</h2>
+        <p>Scope means lifespan of variables. <br />
+            It determines accessibility/visibility of the variables inside the JavaScript code <br />
+            There are three types of scope:
+        <dl>
+            <dt>Global Scope - global</dt>
+            <dd>variable declared in the global execution context <br>
+                accessible from anywhere within the code</dd>
+            <dt>Function Scope - local</dt>
+            <dd>variable declared inside the function <br />
+                cannot be accessed or modified outside the function</dd>
+            <dt>Block Scope - local</dt>
+            <dd>variable declared inside the curly braces <br />
+                cannot be accessed or modified outside the curly braces</dd>
+        </dl>
+        </p>
+        <h3>Lexical Scope</h3>
+        <p>set of rules the JS Engine looks up variable by its identifier <br />
+            <strong>innerScope -> outerScope -> globalScope</strong>
+        </p>
+        <h2>Hoisting</h2>
+        <p>JS engine compile code before it interprets it. <br />
+            JS Engine scans entire code during compiler phase, and store variable as "undefined" in memory under it's
+            specific scope (global, functional, block). <br />
+            <strong>var/function declarations</strong> are <strong>hoisted</strong> and <strong>initialised</strong> as
+            <strong>"undefiend"</strong> <br />
+            <strong>let/const declarations</strong> are <strong>hoisted</strong> but stay <strong>uninitualised</strong>
+            and throw <strong>ReferenceError</strong>. Before initialisation is called <strong>temporal dead
+                zone</strong>.
+        </p>
+        <p>
+        <dl>
+            <dt>RHS reference</dt>
+            <dd>console.log(a) - nothing is being assigned to variable <strong>a</strong>, instead we are retrieving the
+                value of
+                <strong>a</strong>
+            </dd>
+            <dt>LHS reference</dt>
+            <dd>a = 2 - we don't care about the value, we want to find the variable as the target of the = 2 assignment
+                operation</dd>
+        </dl>
+        </p>
+        <p><strong>"strict mode"</strong> disallows global scope to create global variables on its own.</p>
+        <h3>Errors</h3>
+        <p><strong>ReferenceError</strong> is Scope resolution-failure related <br />
+            <strong>TypeError</strong> implies that Scope resolution was succesful, but tehre was illegal/impossible
+            action attempted against the result
+        </p>
+    </article>
+
+    <h2>Debugging JavaScript with Chrome DevTools</h2>
+    <label for="num1">Number 1</label> <br />
+    <input placeholder="Number 1" id="num1"> <br />
+    <label for="num2">Number 2</label> <br />
+    <input placeholder="Number 2" id="num2"> <br /> <br />
+    <button>Add Number 1 and Number 2</button>
+    <p id="sum"></p>
+
+    <dl>
+        <dt>Dev Tools allow me to:</dt>
+        <dd>pause the code in middle of execution</dd>
+        <dd>inspect var in scope at that moment</dd>
+        <dd>walk through code one line at the time</dd>
+    </dl>
+
+    <p>Open <strong>sources</strong> tab for debugging <br />
+    <dl>
+        <dt>file navigator</dt>
+        <dd>files used by page</dd>
+        <dt>file content</dt>
+        <dd>when files used clicked</dd>
+        <dt>javascript debugging</dt>
+        <dd>on the right</dd>
+    </dl>
+    In this app <br>
+    wrong sum computed in click event fired when btn clicked <br>
+    therefore pause code when eventListener executes <br>
+    -> eventListener breakpoints <br>
+    devTools now stops on any eventlistener executing on click <br>
+    <dl>
+        <dt>watch section</dt>
+        <dd>values of var over time</dd>
+        <dd>takes in any valid js expression</dd>
+    </dl>
+    check in console, when pause console has access to all var currently in scope
+    </p>
+
+    <h2>DOM Manipulation</h2>
+    <h3>Selecting</h3>
+    <dl>
+        <dt class="query">querySelectorAll</dt>
+        <dd>CS Selector</dd>
+        <dt class="query">getElementsByClassName</dt>
+        <dd>a fast way of selecting DOM elements by class name in modern browsers</dd>
+        <dt>getElementsByTagName</dt>
+        <dd>a fast and cross browser safe way for selecting DOM elements by tag name, e.g. "div", "a", "span"</dd>
+        <dt id="query">getElementById</dt>
+        <dd>a fast and cross browser safe way for selecting DOM elements</dd>
+    </dl>
+
+    <h3>Traversing</h3>
+    <p>Functions for walking the DOM treen and filtering elements</p>
+
+    <div id="test1">To be replaced.</div>
+    <div>
+        <div id="unwrap">To be unwraped.</div>
+    </div>
+    <div id="empty">Empty me.</div>
+    <div id="remove">Remove me.</div>
+    <div class="before">Hi</div>
+    <div id="getText">You got me!</div>
+    <div id="firstText">First Text.</div>
+    <p id="wrap_me">Wrap me.</p>
+    <div id="clone_me">Clone me</div>
+
+    <ul>
+        <li class="list_item">List item</li>
+        <li class="list_item">List item</li>
+        <li class="list_item">List item</li>
+        <li class="list_item">List item</li>
+        <li class="list_item">List item</li>
+    </ul>
+
+    <a href="#" id="anchor" title="Anchor Tag">Link</a>
+    <br />
+    <input type="text" name="" id="">
+
+    <section>
+        <h2>Events</h2>
+        <p>actions or occurrences in system I'm programming</p>
+        <button id="btn">Change Color</button>
+        <p><strong>addEventListener()</strong> - most powerful method and scales best with more complex programs.</p>
+        <h3>Extra properties of event objects</h3>
+        <input type="text" name="" id="input_event">
+        <div id="output"></div>
+        <br><br>
+        <form action="">
+            <label for="fname">First Name:</label>
+            <input id="fname" type="text" name="fname">
+            <br>
+            <label for="lname">First Name:</label>
+            <input id="lname" type="text" name="lname">
+            <br>
+            <input id="submit" type="submit">
+            <div id="error"></div>
+        </form>
+
+        <h3>Event bubbling and capture</h3>
+        <div id="container">
+            <button id="btn__one">Click me!</button>
+        </div>
+        <pre id="output__one"></pre>
+
+        <h3>Bubbling example</h3>
+        <div id="container__two">
+            <button id="btn__two">Click me!</button>
+        </div>
+        <pre id="output__two"></pre>
+
+        <h3>Event delegation</h3>
+        <div class="tile__container">
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+            <div class="tile__container--item"></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Loops and interation</h2>
+        <h3>for loop</h3>
+        <form action="">
+            <label for="musicTypes">Choose some music types, then click the button below:</label>
+            <br>
+            <select id="musicTypes" name="musicTypes" multiple>
+                <option selected>Rock</option>
+                <option>Hip Hop</option>
+                <option>Csalassic</option>
+            </select>
+            <br>
+            <button id="music__btn">How many are selected?</button>
+            <p id="num__opt"></p>
+        </form>
+
+        <h3>for.. of statement</h3>
+        <p>iterating over <strong>iterable objects</strong> like <strong>arrays & strings</strong></p>
+
+        <h3>for ... in statement</h3>
+        <p>iterates over <strong>enumerable properties</strong> of an <strong>object</strong></p>
+    </section>
+
+    <section>
+        <h2>JavaScript Callbacks</h2>
+        <dl>
+            <dt>Synchronous Callbacks</dt>
+            <dd>isOdd/isEven are synchronous Callbacks because they execute during the execution of the filter()
+                function</dd>
+            <dt>Asynchronous Callbacks</dt>
+            <dd>Executed after the execution of the higher-order function that uses the callback</dd>
+        </dl>
+    </section>
+
+
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
